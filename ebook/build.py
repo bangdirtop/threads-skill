@@ -281,7 +281,7 @@ dihitung dengan script di repo yang sama.</p>
 <title>threads-skill Buat yang Nggak Mau Ribet</title><style>{CSS}</style></head><body>
 {sampul}{halaman_toc}{pembuka1}{h_panduan}{pembuka2}{h_contoh}{kolofon}</body></html>"""
 
-    for ch in "–—―":
+    for ch in "\u2013\u2014\u2015":
         if ch in doc:
             sys.exit(f"Ada em/en dash ({ch!r}) di naskah. Bersihkan dulu, ebook ini bebas em dash.")
 
