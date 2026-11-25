@@ -1,0 +1,14 @@
+{
+  "name": "threads-skill",
+  "owner": {
+    "name": "bangdirtop",
+    "url": "https://github.com/bangdirtop"
+  },
+  "plugins": [
+    {
+      "name": "threads-skill",
+      "source": "./",
+      "description": "12 skill Claude Code berbahasa Indonesia untuk menulis, meriset, dan mengaudit konten Threads."
+    }
+  ]
+}

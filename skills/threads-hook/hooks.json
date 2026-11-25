@@ -1,0 +1,462 @@
+{
+  "versi": 1,
+  "catatan": "26 rumus baris pertama untuk Threads. Tiap rumus punya pola, contoh, tujuan utama (balasan, repost, simpan, follow, klik), pola deteksi untuk swipe.py, dan cara rumus itu biasanya rusak. Contoh hanya ilustrasi bentuk, bukan klaim. Isi angka dengan data milikmu sendiri.",
+  "rumus": [
+    {
+      "id": 1,
+      "nama": "Pengakuan Biaya",
+      "pola": "{Angka spesifik} habis gara-gara {satu kesalahan}.",
+      "contoh": "Rp 4,2 juta habis gara-gara saya pasang iklan tanpa pixel.",
+      "tujuan": [
+        "repost",
+        "balasan"
+      ],
+      "deteksi": [
+        "habis gara-gara",
+        "rugi",
+        "boncos",
+        "hilang rp",
+        "cost me",
+        "kehilangan"
+      ],
+      "rusak_jika": "Angkanya bulat atau dikarang. Rp 4.217.000 lebih dipercaya daripada Rp 4 juta."
+    },
+    {
+      "id": 2,
+      "nama": "Perintah Larangan",
+      "pola": "Berhenti {kebiasaan umum}. Lakukan {alternatif}.",
+      "contoh": "Berhenti minta AI bikin caption. Minta dia kritik caption buatanmu.",
+      "tujuan": [
+        "repost"
+      ],
+      "deteksi": [
+        "berhenti ",
+        "stop ",
+        "jangan lagi",
+        "udah jangan"
+      ],
+      "rusak_jika": "Alternatifnya kabur atau larangannya hal yang memang tidak ada yang lakukan."
+    },
+    {
+      "id": 3,
+      "nama": "Tidak Ada yang Bilang",
+      "pola": "Tidak ada yang bilang kalau {kenyataan tidak enak soal hal yang mereka kejar}.",
+      "contoh": "Tidak ada yang bilang kalau 20 postingan pertamamu memang akan sepi.",
+      "tujuan": [
+        "repost",
+        "balasan"
+      ],
+      "deteksi": [
+        "tidak ada yang bilang",
+        "ga ada yang bilang",
+        "gak ada yang ngasih tau",
+        "nobody tells you",
+        "jarang ada yang bilang"
+      ],
+      "rusak_jika": "Kenyataannya sudah sering dibahas. Kalau semua orang bilang, rumus ini bohong."
+    },
+    {
+      "id": 4,
+      "nama": "Pengganti Murah",
+      "pola": "{Hal ini} menggantikan {hal mahal} dengan biaya {harga}.",
+      "contoh": "Satu prompt ini menggantikan jasa desainer Rp 1,5 juta per bulan saya.",
+      "tujuan": [
+        "simpan",
+        "repost"
+      ],
+      "deteksi": [
+        "menggantikan",
+        "ganti ",
+        "gantiin",
+        "replaced"
+      ],
+      "rusak_jika": "Perbandingannya tidak setara, misalnya alat gratis dibandingkan jasa profesional penuh."
+    },
+    {
+      "id": 5,
+      "nama": "Waktu Dipangkas",
+      "pola": "Dulu {pekerjaan} butuh {waktu lama}. Sekarang {waktu singkat}.",
+      "contoh": "Dulu bikin satu video fabel butuh 2 hari. Sekarang 40 menit.",
+      "tujuan": [
+        "simpan",
+        "repost"
+      ],
+      "deteksi": [
+        "dulu ",
+        "sekarang cuma",
+        "sekarang tinggal",
+        "used to take",
+        "jadi cuma"
+      ],
+      "rusak_jika": "Rasionya tidak masuk akal atau tidak ada cara yang dijanjikan di postingan berikutnya."
+    },
+    {
+      "id": 6,
+      "nama": "Bukti Angka",
+      "pola": "Saya {melakukan hal} selama {N hari}. Ini angka aslinya.",
+      "contoh": "Saya posting album bukti AI 8 hari berturut-turut. Ini angka aslinya.",
+      "tujuan": [
+        "repost",
+        "follow"
+      ],
+      "deteksi": [
+        "angka aslinya",
+        "ini hasilnya",
+        "hari berturut",
+        "hari ke-",
+        "selama",
+        "insight"
+      ],
+      "rusak_jika": "Tidak ada screenshot. Di Threads, bukti di album adalah isi postingannya."
+    },
+    {
+      "id": 7,
+      "nama": "Salah Cara, Bukan Salahmu",
+      "pola": "Kamu salah {melakukan hal}, dan itu bukan salahmu. {Perbaikannya}.",
+      "contoh": "Kamu salah pakai ChatGPT buat jualan, dan itu bukan salahmu. Tutorialnya yang salah.",
+      "tujuan": [
+        "balasan",
+        "simpan"
+      ],
+      "deteksi": [
+        "kamu salah",
+        "bukan salahmu",
+        "selama ini salah",
+        "you are doing"
+      ],
+      "rusak_jika": "Perbaikannya tidak ada di postingan yang sama atau utasnya."
+    },
+    {
+      "id": 8,
+      "nama": "Bocoran Orang Dalam",
+      "pola": "{N tahun} saya {di dalam bidang itu}. Ini yang tidak pernah kami ucapkan.",
+      "contoh": "6 tahun saya pegang iklan toko online. Ini yang tidak pernah kami bilang ke klien.",
+      "tujuan": [
+        "repost",
+        "follow"
+      ],
+      "deteksi": [
+        "orang dalam",
+        "tidak pernah kami",
+        "rahasia",
+        "tahun saya kerja",
+        "behind the scenes"
+      ],
+      "rusak_jika": "Tahunnya tidak nyata. Hanya pakai kalau pengalamannya benar."
+    },
+    {
+      "id": 9,
+      "nama": "Ambil Saja",
+      "pola": "Ambil {alat/template} ini. Butuh {waktu} buat saya sampai pas.",
+      "contoh": "Ambil prompt ini. Saya butuh 3 minggu sampai hasilnya konsisten.",
+      "tujuan": [
+        "simpan"
+      ],
+      "deteksi": [
+        "ambil ",
+        "copas",
+        "silakan pakai",
+        "steal",
+        "gratis buat kamu"
+      ],
+      "rusak_jika": "Barangnya tidak benar-benar diberikan di postingan atau balasan pertama."
+    },
+    {
+      "id": 10,
+      "nama": "Kalau Kamu Begini",
+      "pola": "Kalau kamu {situasi spesifik}, {hal singkat} ini beresin.",
+      "contoh": "Kalau postinganmu ramai balasan tapi view mentok, baca ini.",
+      "tujuan": [
+        "simpan",
+        "balasan"
+      ],
+      "deteksi": [
+        "kalau kamu",
+        "kalo kamu",
+        "buat kamu yang",
+        "if you"
+      ],
+      "rusak_jika": "Situasinya terlalu umum sehingga semua orang merasa bukan dirinya."
+    },
+    {
+      "id": 11,
+      "nama": "Daftar dengan Favorit",
+      "pola": "{N} {hal} yang {hasil}. Nomor {k} paling jarang dipakai.",
+      "contoh": "5 cara Threads menyebarkan postingan. Nomor 4 paling jarang dipakai.",
+      "tujuan": [
+        "simpan"
+      ],
+      "deteksi": [
+        "nomor ",
+        "yang terakhir",
+        "\\d+ cara",
+        "\\d+ hal",
+        "\\d+ tools",
+        "\\d+ alat"
+      ],
+      "rusak_jika": "Daftarnya lebih dari 7 butir di satu postingan teks. Pindahkan ke utas atau album."
+    },
+    {
+      "id": 12,
+      "nama": "Keberatan",
+      "pola": "\"{Keberatan yang benar-benar diucapkan orang}.\" Oke. Ini versi yang tetap jalan.",
+      "contoh": "\"AI bikin konten jadi nggak autentik.\" Oke. Ini cara saya tetap pakai suara sendiri.",
+      "tujuan": [
+        "balasan"
+      ],
+      "deteksi": [
+        "\"",
+        "oke. ",
+        "fine.",
+        "katanya"
+      ],
+      "rusak_jika": "Keberatannya dikarang dan tidak ada yang pernah mengucapkannya."
+    },
+    {
+      "id": 13,
+      "nama": "Sebelum dan Sesudah",
+      "pola": "{Tunjukkan versi lama}. {Tunjukkan versi baru}. {Satu kalimat tentang pengungkitnya}.",
+      "contoh": "Kiri: caption pertama saya. Kanan: yang sekarang. Bedanya cuma baris pertama.",
+      "tujuan": [
+        "simpan",
+        "repost"
+      ],
+      "deteksi": [
+        "sebelum",
+        "sesudah",
+        "kiri",
+        "kanan",
+        "before",
+        "after"
+      ],
+      "rusak_jika": "Gambarnya tidak bisa dibaca di layar HP tanpa diperbesar."
+    },
+    {
+      "id": 14,
+      "nama": "Panggilan Kelompok",
+      "pola": "{Kelompok spesifik}, ini yang selama ini kalian lewatkan.",
+      "contoh": "Pemilik warung yang baru mulai jualan online, ini yang kalian lewatkan.",
+      "tujuan": [
+        "balasan",
+        "repost"
+      ],
+      "deteksi": [
+        "buat kalian",
+        "untuk kalian",
+        "kalian yang",
+        "para ",
+        "teman-teman yang"
+      ],
+      "rusak_jika": "Kelompoknya terlalu luas, misalnya \"buat kalian yang mau sukses\"."
+    },
+    {
+      "id": 15,
+      "nama": "Catatan Gagal",
+      "pola": "{N} {percobaan} pertama saya gagal. Ini yang berubah di percobaan ke-{N+1}.",
+      "contoh": "12 video pertama saya di bawah 300 view. Ini yang saya ubah di video ke-13.",
+      "tujuan": [
+        "balasan",
+        "follow"
+      ],
+      "deteksi": [
+        "gagal",
+        "pertama saya",
+        "flop",
+        "sepi",
+        "nggak ada yang nonton"
+      ],
+      "rusak_jika": "Perubahannya tidak spesifik atau angka gagalnya dikarang."
+    },
+    {
+      "id": 16,
+      "nama": "Pertanyaan Apa Adanya",
+      "pola": "\"{Pertanyaan persis seperti ditanyakan}\". Pertanyaan ini masuk tiap minggu.",
+      "contoh": "\"Bang, Muse itu harus pakai VPN?\" Pertanyaan ini masuk tiap hari.",
+      "tujuan": [
+        "balasan",
+        "simpan"
+      ],
+      "deteksi": [
+        "?\"",
+        "ditanya",
+        "pertanyaan ini",
+        "sering ditanya",
+        "yang nanya"
+      ],
+      "rusak_jika": "Pertanyaannya ditulis ulang jadi rapi. Biarkan ejaan aslinya."
+    },
+    {
+      "id": 17,
+      "nama": "Adu Langsung",
+      "pola": "{A} lawan {B}. Saya pakai dua-duanya selama {waktu} dan hasilnya jauh.",
+      "contoh": "Seedance lawan Kling. Saya pakai dua-duanya sebulan dan satunya jauh.",
+      "tujuan": [
+        "balasan",
+        "repost"
+      ],
+      "deteksi": [
+        " vs ",
+        " lawan ",
+        "versus",
+        "dibanding",
+        "mana yang lebih"
+      ],
+      "rusak_jika": "Pemenangnya tidak disebut. Adu tanpa putusan itu iklan dua produk."
+    },
+    {
+      "id": 18,
+      "nama": "Langsung Praktik",
+      "pola": "{Mulai di tengah aksi}. Lihat apa yang terjadi.",
+      "contoh": "Saya kasih foto warung ke AI. Lihat apa yang dia bikin.",
+      "tujuan": [
+        "repost"
+      ],
+      "deteksi": [
+        "lihat apa",
+        "lihat hasilnya",
+        "watch what",
+        "coba lihat"
+      ],
+      "rusak_jika": "Hasilnya tidak ada di media yang menempel di postingan."
+    },
+    {
+      "id": 19,
+      "nama": "Tenggat",
+      "pola": "{Hal} berubah tanggal {tanggal}. Lakukan {aksi} sebelum itu.",
+      "contoh": "Harga paket ini naik 1 Desember. Kunci harga lama sebelum itu.",
+      "tujuan": [
+        "simpan",
+        "klik"
+      ],
+      "deteksi": [
+        "sebelum tanggal",
+        "mulai tanggal",
+        "berubah",
+        "deadline",
+        "terakhir"
+      ],
+      "rusak_jika": "Tanggalnya palsu atau tenggatnya buatan untuk menekan."
+    },
+    {
+      "id": 20,
+      "nama": "Izin",
+      "pola": "Kamu tidak butuh {hal yang katanya wajib}.",
+      "contoh": "Kamu tidak butuh kamera mahal buat mulai konten.",
+      "tujuan": [
+        "repost",
+        "balasan"
+      ],
+      "deteksi": [
+        "tidak butuh",
+        "nggak perlu",
+        "ga perlu",
+        "gak usah",
+        "you do not need"
+      ],
+      "rusak_jika": "Sesudahnya tidak ada jalan lain yang ditunjukkan."
+    },
+    {
+      "id": 21,
+      "nama": "Mulai di Tengah Kalimat",
+      "pola": "...dan saat itu {belokan cerita}.",
+      "contoh": "...dan saat itu bot saya membalas 40 orang dengan \"Teks kosong.\"",
+      "tujuan": [
+        "balasan"
+      ],
+      "deteksi": [
+        "...dan",
+        "dan saat itu",
+        "terus tiba-tiba",
+        "and that is when"
+      ],
+      "rusak_jika": "Belokannya tidak cukup aneh untuk membuat orang ingin tahu awalnya."
+    },
+    {
+      "id": 22,
+      "nama": "Pepatah Dibalik",
+      "pola": "{Pepatah terkenal, dibalik}.",
+      "contoh": "Konsisten itu bukan kuncinya. Konsisten salah cuma bikin salah lebih cepat.",
+      "tujuan": [
+        "repost",
+        "balasan"
+      ],
+      "deteksi": [
+        "bukan kuncinya",
+        "justru",
+        "kebalikannya",
+        "itu mitos"
+      ],
+      "rusak_jika": "Pembalikannya tidak bisa kamu bela di kolom balasan."
+    },
+    {
+      "id": 23,
+      "nama": "Statistik",
+      "pola": "{N}% {kelompok} {fakta mengejutkan}.",
+      "contoh": "83% penonton akun ini umur 25 sampai 44. Bukan anak sekolah.",
+      "tujuan": [
+        "repost"
+      ],
+      "deteksi": [
+        "%",
+        "persen",
+        "dari 10",
+        "1 dari"
+      ],
+      "rusak_jika": "Sumber angkanya tidak disebut atau angkanya tidak bisa dicek."
+    },
+    {
+      "id": 24,
+      "nama": "Pengungkapan",
+      "pola": "Ini {hal} yang baru.",
+      "contoh": "Ini cara baru bikin video tanpa kamera.",
+      "tujuan": [
+        "repost",
+        "klik"
+      ],
+      "deteksi": [
+        "ini yang baru",
+        "baru rilis",
+        "baru keluar",
+        "ini dia",
+        "kenalin"
+      ],
+      "rusak_jika": "Hal itu tidak baru atau sudah ramai dibahas seminggu lalu."
+    },
+    {
+      "id": 25,
+      "nama": "Hasil Orang Lain",
+      "pola": "Ada satu {orang} yang {hasil} dalam {waktu}.",
+      "contoh": "Ada satu pembeli kelas yang closing 14 order dalam 3 hari pertama.",
+      "tujuan": [
+        "follow",
+        "klik"
+      ],
+      "deteksi": [
+        "ada satu",
+        "seorang",
+        "temen saya",
+        "klien saya",
+        "murid saya"
+      ],
+      "rusak_jika": "Orangnya tidak ada atau tidak setuju ceritanya dipakai."
+    },
+    {
+      "id": 26,
+      "nama": "Paling",
+      "pola": "{Paling cepat / paling murah / satu-satunya} {hal} adalah {jawaban}.",
+      "contoh": "Cara paling murah tes ide produk adalah posting di Threads, bukan pasang iklan.",
+      "tujuan": [
+        "repost",
+        "balasan"
+      ],
+      "deteksi": [
+        "paling ",
+        "satu-satunya",
+        "termurah",
+        "tercepat",
+        "terbaik"
+      ],
+      "rusak_jika": "Klaim paling tanpa alasan. Satu kalimat alasan wajib ikut."
+    }
+  ]
+}

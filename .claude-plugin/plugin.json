@@ -1,0 +1,12 @@
+{
+  "name": "threads-skill",
+  "description": "12 skill Claude Code berbahasa Indonesia untuk Threads: postingan, utas, album, 26 rumus hook dengan skor, humanizer tanpa em dash, riset niche berbasis median akun, audit, rencana mingguan, balasan, DM, profil, dan repurpose.",
+  "version": "1.0.0",
+  "author": {
+    "name": "bangdirtop",
+    "url": "https://github.com/bangdirtop"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bangdirtop/threads-skill",
+  "keywords": ["threads", "meta-threads", "copywriting", "bahasa-indonesia", "claude-skills", "konten", "hook", "humanizer"]
+}
