@@ -9,6 +9,13 @@ Satu aturan berlaku di semua skill: **em dash dan en dash dilarang total.**
 Tidak ada kuota. `humanize.py` menghapusnya, `lint_post.py` dan `detect.py`
 menggagalkannya.
 
+## Baru pertama kali? Baca ini dulu
+
+- **[PANDUAN.md](PANDUAN.md)**: buku panduan santai, dari pasang sampai
+  ngukur hasil. Ada ikon tips, ingat, awas, dan contekan satu halaman.
+- **[CONTOH.md](CONTOH.md)**: pola perintah, 8 contoh siap salin, dan satu
+  studi kasus utuh untuk tiap skill.
+
 ## Isi
 
 | Skill | Untuk apa | Alat |
