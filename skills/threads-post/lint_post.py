@@ -88,7 +88,12 @@ def periksa(teks, keywords):
 
     low = semua.lower()
     ajakan = [p for p in AJAKAN if re.search(p, low)]
-    kalimat_ajakan = [k for k in re.split(r"(?<=[.!?])\s+|\n", semua) if any(re.search(p, k.lower()) for p in AJAKAN)]
+    def ajakan_di_awal(k):
+        # ajakan = kata kerja ajakan di 3 kata pertama kalimat, bukan angka metrik seperti "160 balasan"
+        awal = " ".join(k.lower().split()[:3])
+        return any(re.search(p, awal) for p in AJAKAN)
+
+    kalimat_ajakan = [k for k in re.split(r"(?<=[.!?])\s+|\n", semua) if k.strip() and ajakan_di_awal(k)]
     if len(kalimat_ajakan) > 1:
         awas.append(f"{len(kalimat_ajakan)} kalimat berisi ajakan, pilih satu: " + " | ".join(k.strip()[:50] for k in kalimat_ajakan[:3]))
     elif not ajakan:
