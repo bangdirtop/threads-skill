@@ -15,6 +15,9 @@ menggagalkannya.
   ngukur hasil. Ada ikon tips, ingat, awas, dan contekan satu halaman.
 - **[CONTOH.md](CONTOH.md)**: pola perintah, 8 contoh siap salin, dan satu
   studi kasus utuh untuk tiap skill.
+- **[Ebook PDF](ebook/threads-skill-panduan.pdf)**: kedua buku di atas dalam satu
+  file PDF (73 halaman, ukuran A5), enak dibaca di HP atau dicetak. Dibuat ulang
+  dengan `python3 ebook/build.py`.
 
 ## Isi
 
