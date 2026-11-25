@@ -38,7 +38,7 @@ LINK = re.compile(r"https?://\S+|www\.\S+|\b\w+\.(com|id|app|md|co|io|net|org|ai
 SAPAAN = re.compile(r"^(halo|hai|hi|hello|selamat (pagi|siang|sore|malam)|assalamu|guys|gaes|warga|teman-teman|temen-temen|oke jadi|jadi gini|izin)\b", re.IGNORECASE)
 AJAKAN = [
     r"\brepost\b", r"\bsimpan\b", r"\bsave\b", r"\bfollow\b", r"\bikuti\b",
-    r"\bkomen(tar)?\b", r"\bbalas\b", r"\bketik\b", r"\bklik\b", r"\bdm\b",
+    r"\bkomen\b", r"\bkomentari\b", r"\btulis\b", r"\bbalas\b", r"\bketik\b", r"\bklik\b", r"\bdm\b",
     r"\blink (di|ada di)\b", r"\bcek (link|bio)\b", r"\bdaftar\b", r"\bbeli\b",
     r"\bshare\b", r"\bbagikan\b", r"\bvote\b", r"\bpilih\b",
 ]
