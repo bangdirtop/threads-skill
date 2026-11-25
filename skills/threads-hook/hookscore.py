@@ -153,14 +153,14 @@ def nilai(teks):
 
 def main():
     ap = argparse.ArgumentParser(description="Skor baris pertama postingan Threads.")
-    ap.add_argument("berkas", nargs="?", help="file berisi satu kandidat per baris")
+    ap.add_argument("berkas", nargs="?", help="file berisi satu kandidat per baris, atau - untuk stdin")
     ap.add_argument("--hook", help="nilai satu baris saja")
     ap.add_argument("--json", action="store_true", help="keluaran JSON")
     a = ap.parse_args()
 
     if a.hook:
         baris = [a.hook]
-    elif a.berkas:
+    elif a.berkas and a.berkas != "-":
         with open(a.berkas, encoding="utf-8") as f:
             baris = [b.strip() for b in f if b.strip()]
     else:
